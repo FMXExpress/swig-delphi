@@ -1,0 +1,11 @@
+int foo110(int x) { return x; }
+int foo111(int x) { return x; }
+int foo112(int x) { return x; }
+int foo113(int x) { return x; }
+int foo114(int x) { return x; }
+int foo115(int x) { return x; }
+int foo116(int x) { return x; }
+int foo117(int x) { return x; }
+int foo118(int x) { return x; }
+int foo119(int x) { return x; }
+int foo1110(int x) { return x; }

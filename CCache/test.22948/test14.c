@@ -1,0 +1,14 @@
+int foo140(int x) { return x; }
+int foo141(int x) { return x; }
+int foo142(int x) { return x; }
+int foo143(int x) { return x; }
+int foo144(int x) { return x; }
+int foo145(int x) { return x; }
+int foo146(int x) { return x; }
+int foo147(int x) { return x; }
+int foo148(int x) { return x; }
+int foo149(int x) { return x; }
+int foo1410(int x) { return x; }
+int foo1411(int x) { return x; }
+int foo1412(int x) { return x; }
+int foo1413(int x) { return x; }

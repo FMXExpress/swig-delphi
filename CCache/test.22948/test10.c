@@ -1,0 +1,10 @@
+int foo100(int x) { return x; }
+int foo101(int x) { return x; }
+int foo102(int x) { return x; }
+int foo103(int x) { return x; }
+int foo104(int x) { return x; }
+int foo105(int x) { return x; }
+int foo106(int x) { return x; }
+int foo107(int x) { return x; }
+int foo108(int x) { return x; }
+int foo109(int x) { return x; }

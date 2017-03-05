@@ -1,0 +1,108 @@
+CParse/cscanner.o: CParse/cscanner.c CParse/cparse.h \
+ ../Source/Swig/swig.h ../Source/Include/swigconfig.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/stdio.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/crtdefs.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_mac.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_secapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/vadefs.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sdks/_mingw_directx.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sdks/_mingw_ddk.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_print_push.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_off_t.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/swprintf.inl \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stdio_s.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_print_pop.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/string.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/string_s.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/stdlib.h \
+ D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include-fixed/limits.h \
+ D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include-fixed/syslimits.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/limits.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stdlib_s.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/malloc.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/assert.h ../Source/DOH/doh.h \
+ D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include/stdarg.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/stdarg.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_stdarg.h \
+ ../Source/Swig/swigfile.h ../Source/Swig/swigopt.h \
+ ../Source/Swig/swigscan.h ../Source/Swig/swigparm.h \
+ ../Source/Swig/swigtree.h ../Source/Swig/swigwrap.h \
+ ../Source/Include/swigwarn.h CParse/parser.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/ctype.h
+
+CParse/cparse.h:
+
+../Source/Swig/swig.h:
+
+../Source/Include/swigconfig.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/stdio.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/crtdefs.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_mac.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_secapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/vadefs.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sdks/_mingw_directx.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sdks/_mingw_ddk.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_print_push.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_off_t.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/swprintf.inl:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stdio_s.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_print_pop.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/string.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/string_s.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/stdlib.h:
+
+D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include-fixed/limits.h:
+
+D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include-fixed/syslimits.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/limits.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stdlib_s.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/malloc.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/assert.h:
+
+../Source/DOH/doh.h:
+
+D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include/stdarg.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/stdarg.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_stdarg.h:
+
+../Source/Swig/swigfile.h:
+
+../Source/Swig/swigopt.h:
+
+../Source/Swig/swigscan.h:
+
+../Source/Swig/swigparm.h:
+
+../Source/Swig/swigtree.h:
+
+../Source/Swig/swigwrap.h:
+
+../Source/Include/swigwarn.h:
+
+CParse/parser.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/ctype.h:

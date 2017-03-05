@@ -1,0 +1,104 @@
+pcregrep-pcregrep.o: pcregrep.c config.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/ctype.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/crtdefs.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_mac.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_secapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/vadefs.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sdks/_mingw_directx.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sdks/_mingw_ddk.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/locale.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/stdio.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_print_push.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_off_t.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/swprintf.inl \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stdio_s.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_print_pop.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/string.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/string_s.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/stdlib.h \
+ D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include-fixed/limits.h \
+ D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include-fixed/syslimits.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/limits.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stdlib_s.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/malloc.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/errno.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sys/types.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sys/stat.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/io.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_stat64.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/unistd.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/process.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/getopt.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/pthread_unistd.h pcre.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/dirent.h
+
+config.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/ctype.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/crtdefs.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_mac.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_secapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/vadefs.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sdks/_mingw_directx.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sdks/_mingw_ddk.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/locale.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/stdio.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_print_push.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_off_t.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/swprintf.inl:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stdio_s.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_print_pop.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/string.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/string_s.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/stdlib.h:
+
+D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include-fixed/limits.h:
+
+D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include-fixed/syslimits.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/limits.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stdlib_s.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/malloc.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/errno.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sys/types.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sys/stat.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/io.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_stat64.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/unistd.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/process.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/getopt.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/pthread_unistd.h:
+
+pcre.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/dirent.h:

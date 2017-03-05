@@ -1,0 +1,338 @@
+Modules/main.o: Modules/main.cxx ../Source/Include/swigconfig.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/windows.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_mac.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_secapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/vadefs.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sdks/_mingw_directx.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sdks/_mingw_ddk.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sdkddkver.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/excpt.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/crtdefs.h \
+ D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include/stdarg.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/stdarg.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_stdarg.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/windef.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/minwindef.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/winapifamily.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/specstrings.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sal.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/winnt.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_unicode.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/ctype.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/apiset.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/basetsd.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/guiddef.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/string.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/string_s.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack4.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/poppack.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack4.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack2.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/poppack.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack2.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack8.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack8.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/ktmtypes.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/winbase.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/apisetcconv.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/minwinbase.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/bemapiset.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/debugapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/errhandlingapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/fibersapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/fileapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/handleapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/heapapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/ioapiset.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/interlockedapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/jobapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/libloaderapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/memoryapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/namedpipeapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/namespaceapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/processenv.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/processthreadsapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/processtopologyapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/profileapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/realtimeapiset.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/securityappcontainer.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/securitybaseapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/synchapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sysinfoapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/systemtopologyapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/threadpoolapiset.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/threadpoollegacyapiset.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/utilapiset.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/wow64apiset.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/winerror.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/fltwinerror.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/timezoneapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/wingdi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack1.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/winuser.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/tvout.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/winnls.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/datetimeapi.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/stringapiset.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/wincon.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/winver.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/winreg.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/reason.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/winnetwk.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/wnnc.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/virtdisk.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/stralign.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stralign_s.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/winsvc.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/mcx.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/imm.h Modules/swigmod.h \
+ ../Source/Swig/swig.h D:/MinGW/mingw32/i686-w64-mingw32/include/stdio.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_print_push.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_off_t.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/swprintf.inl \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stdio_s.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_print_pop.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/stdlib.h \
+ D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include-fixed/limits.h \
+ D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include-fixed/syslimits.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/limits.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stdlib_s.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/malloc.h \
+ D:/MinGW/mingw32/i686-w64-mingw32/include/assert.h ../Source/DOH/doh.h \
+ ../Source/Swig/swigfile.h ../Source/Swig/swigopt.h \
+ ../Source/Swig/swigscan.h ../Source/Swig/swigparm.h \
+ ../Source/Swig/swigtree.h ../Source/Swig/swigwrap.h \
+ ../Source/Preprocessor/preprocessor.h ../Source/Include/swigwarn.h \
+ ../Source/CParse/cparse.h
+
+../Source/Include/swigconfig.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/windows.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_mac.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_secapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/vadefs.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sdks/_mingw_directx.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sdks/_mingw_ddk.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sdkddkver.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/excpt.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/crtdefs.h:
+
+D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include/stdarg.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/stdarg.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_stdarg.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/windef.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/minwindef.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/winapifamily.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/specstrings.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sal.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/winnt.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_unicode.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/ctype.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/apiset.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/basetsd.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/guiddef.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/string.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/string_s.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack4.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/poppack.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack4.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack2.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/poppack.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack2.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack8.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack8.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/ktmtypes.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/winbase.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/apisetcconv.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/minwinbase.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/bemapiset.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/debugapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/errhandlingapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/fibersapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/fileapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/handleapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/heapapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/ioapiset.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/interlockedapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/jobapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/libloaderapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/memoryapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/namedpipeapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/namespaceapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/processenv.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/processthreadsapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/processtopologyapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/profileapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/realtimeapiset.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/securityappcontainer.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/securitybaseapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/synchapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sysinfoapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/systemtopologyapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/threadpoolapiset.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/threadpoollegacyapiset.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/utilapiset.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/wow64apiset.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/winerror.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/fltwinerror.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/timezoneapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/wingdi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/pshpack1.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/winuser.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/tvout.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/winnls.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/datetimeapi.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/stringapiset.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/wincon.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/winver.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/winreg.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/reason.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/winnetwk.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/wnnc.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/virtdisk.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/stralign.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stralign_s.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/winsvc.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/mcx.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/imm.h:
+
+Modules/swigmod.h:
+
+../Source/Swig/swig.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/stdio.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_print_push.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_off_t.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/swprintf.inl:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stdio_s.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/_mingw_print_pop.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/stdlib.h:
+
+D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include-fixed/limits.h:
+
+D:/MinGW/mingw32/lib/gcc/i686-w64-mingw32/5.4.0/include-fixed/syslimits.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/limits.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/sec_api/stdlib_s.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/malloc.h:
+
+D:/MinGW/mingw32/i686-w64-mingw32/include/assert.h:
+
+../Source/DOH/doh.h:
+
+../Source/Swig/swigfile.h:
+
+../Source/Swig/swigopt.h:
+
+../Source/Swig/swigscan.h:
+
+../Source/Swig/swigparm.h:
+
+../Source/Swig/swigtree.h:
+
+../Source/Swig/swigwrap.h:
+
+../Source/Preprocessor/preprocessor.h:
+
+../Source/Include/swigwarn.h:
+
+../Source/CParse/cparse.h:

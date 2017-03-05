@@ -1,0 +1,16 @@
+int foo160(int x) { return x; }
+int foo161(int x) { return x; }
+int foo162(int x) { return x; }
+int foo163(int x) { return x; }
+int foo164(int x) { return x; }
+int foo165(int x) { return x; }
+int foo166(int x) { return x; }
+int foo167(int x) { return x; }
+int foo168(int x) { return x; }
+int foo169(int x) { return x; }
+int foo1610(int x) { return x; }
+int foo1611(int x) { return x; }
+int foo1612(int x) { return x; }
+int foo1613(int x) { return x; }
+int foo1614(int x) { return x; }
+int foo1615(int x) { return x; }
