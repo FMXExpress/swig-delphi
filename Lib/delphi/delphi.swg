@@ -1030,34 +1030,11 @@ var CPtr : pointer;
 %}
 
 %typemap(pasclassdef_base) SWIGTYPE "
-  T$pasclassname = class (TObject, IUnknown)
-
-  private
-    FCObjPtr : $pasclassname;
-    FOwnCObjPtr : boolean;
-
-  protected
-	procedure SetCObjPtr(Value : $pasclassname);
-  // IUnknown
-    function _AddRef : integer; stdcall;
-    function _Release: integer; stdcall;
-    function QueryInterface(const GUID:TGUID; out Intf): HRESULT; stdcall;
- public
+  T$pasclassname = class (TInterfacedObject)
+  public
 "
 %typemap(pasclassdef_base_struct) SWIGTYPE "
-  T$pasclassname = class
-
-  private
-    FCObjPtr : $pasclassname;
-    FOwnCObjPtr : boolean;
-
-  protected
-	procedure SetCObjPtr(Value : $pasclassname);
-  // IUnknown
-    function _AddRef : integer; stdcall;
-    function _Release: integer; stdcall;
-    function QueryInterface(const GUID:TGUID; out Intf): HRESULT; stdcall;
- public
+  T$pasclassname = record
 "
 
 %typemap(pasclass_iunknown) SWIGTYPE "
@@ -1082,26 +1059,8 @@ end;
  "
 
 
-%typemap(pasdefault_constructor_def) SWIGTYPE "
-    constructor Create; overload; virtual;
-    constructor Create(CObj:$pasclassname; OwnObj:boolean); overload; 
-"
-%typemap(pasdefault_constructor_code) SWIGTYPE "
-constructor T$pasclassname.Create; 
-begin
-  inherited Create;
-  FCObjPtr := nil;
-  FOwnCObjPtr := true
-end;
-
-constructor T$pasclassname.Create(CObj:$pasclassname; OwnObj:boolean); 
-begin
-  inherited Create;
-  FCObjPtr := CObj;
-  FOwnCObjPtr := OwnObj
-end;
-
-"
+%typemap(pasdefault_constructor_def) SWIGTYPE ""
+%typemap(pasdefault_constructor_code) SWIGTYPE ""
 
 %typemap(pasclassdef_derived, methodname="Dispose") SWIGTYPE "
   T$pasclassname = class (T$baseclass) 
@@ -1117,49 +1076,11 @@ end;
 "
 
 
-%typemap(pasdestruct_code, methodname="Dispose") SWIGTYPE "
-destructor T$pasclassname.Destroy; 
-begin   
-  if (FCObjPtr <> nil) and  FOwnCObjPtr then begin 
-    $imcall;
-    FOwnCObjPtr := false;
-  end;
-  FCObjPtr := nil; 
-  inherited Destroy;
-end;
+%typemap(pasdestruct_code, methodname="Dispose") SWIGTYPE ""
 
-procedure T$pasclassname.SetCObjPtr(Value : $pasclassname);
-begin
- 
-  if (Value <> FCObjPtr) then begin
-	if (FCObjPtr <> nil) and  FOwnCObjPtr then begin 
-		$imcall;
-	end;
-	FCObjPtr := Value;
-  
-  
-  end;
-
-end;
-
-"
-
-%typemap(pasdestruct_derived_code, methodname="Dispose") SWIGTYPE "
-destructor T$pasclassname.Destroy;
-begin   
-  if (FCObjPtr  <> nil) and  FOwnCObjPtr then begin 
-    $imcall;
-    FOwnCObjPtr := false;
-  end;  
-  FCObjPtr := nil; 
-  inherited Destroy;
-end;
-"
+%typemap(pasdestruct_derived_code, methodname="Dispose") SWIGTYPE ""
 
 %typemap(pasgetcptr_intf) SWIGTYPE, SWIGTYPE *, SWIGTYPE &, SWIGTYPE &&, SWIGTYPE [], SWIGTYPE (CLASS::*) %{  
-  public  
-    property CObjPtr : $pasclassname read FCObjPtr write SetCObjPtr;
-    property OwnCObjPtr : boolean read FOwnCObjPtr  write FOwnCObjPtr ;
 %}
 
 
