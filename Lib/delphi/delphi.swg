@@ -19,7 +19,7 @@
 %typemap(ctype) bool,               const bool &               "bool"
 %typemap(ctype) char,               const char &               "char"
 %typemap(ctype) signed char,        const signed char &        "signed char"
-%typemap(ctype) unsigned char,      const unsigned char &      "unsigned short"
+%typemap(ctype) unsigned char,      const unsigned char &      "unsigned char"
 %typemap(ctype) short,              const short &              "short"
 %typemap(ctype) unsigned short,     const unsigned short &     "unsigned short"
 %typemap(ctype) int,                const int &                "int"
@@ -1163,21 +1163,6 @@ FROM BlaBla IMPORT Bla;
 
 %enddef
 
-
-%insert(interface_begin) %{
-//type PDouble = ^double;
-%}
-
-DeclareArrayOf(interface_begin, double)
-DeclareArrayOf(interface_begin, cardinal)
-
-
-%insert(interface_end) %{
-type
-	Psize_t = ^Cardinal;
-%}
-
-
 %define TEMPLATE_WRAP0(name, type,T...) 
 
 %typemap(  pasrawintype)      name < T > * 	%{type%}
@@ -1198,4 +1183,3 @@ type
 
 %enddef
 
-DeclarePlaceHolder(interface_begin, CFILE);
