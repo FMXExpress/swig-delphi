@@ -501,6 +501,10 @@ public:
 		  Setattr(reserved_keyword,"var", "1");
 		  Setattr(reserved_keyword,"const", "1");
 		  Setattr(reserved_keyword,"class", "1");
+		  Setattr(reserved_keyword,"private", "1");
+		  Setattr(reserved_keyword,"protected", "1");
+		  Setattr(reserved_keyword,"public", "1");
+		  Setattr(reserved_keyword,"publish", "1");
 		  Setattr(reserved_keyword,"set", "1");
 		  Setattr(reserved_keyword,"string", "1");
 		  Setattr(reserved_keyword,"array", "1");
@@ -509,13 +513,11 @@ public:
 		  Setattr(reserved_keyword,"integer", "1");
 		  Setattr(reserved_keyword,"char", "1");
 		  Setattr(reserved_keyword,"byte", "1");
-		  Setattr(reserved_keyword,"const", "1");
+		  Setattr(reserved_keyword,"function", "1");
+		  Setattr(reserved_keyword,"procedure", "1");
 		  Setattr(reserved_keyword,"object", "1");
 		  Setattr(reserved_keyword,"begin", "1");
 		  Setattr(reserved_keyword,"end", "1");
-
-
-
 	  }
 
 	  virtual ~DELPHI()
@@ -838,7 +840,7 @@ public:
 			  n = parentNode(n);
 		  }
 		  //printf("qualified name: %s\n", Char(name));
-		  return name;
+          return name;
 	  }
 #endif
 
@@ -1134,7 +1136,7 @@ public:
 
 		  SWIG_library_directory("delphi");
 
-		  callconv = NewString("stdcall");
+		  callconv = NewString("cdecl");
 
 		  wrapdllname = NewString("");
 		  dllname = NewString("");
@@ -1408,10 +1410,6 @@ public:
 
 
 	  int generatePASTop(Node *n) {
-
-
-
-
 		  /* Initialize all of the output files */
 		  outfile = GetattrNew(n, "outfile");
 		  String *outfile_h = GetattrNew(n, "outfile_h");
@@ -1474,7 +1472,7 @@ public:
 		  initialization= NewString(""); //\n\n//initialization\n\n
 		  finalization= NewString(""); //\n\n//finalization\n\n
 
-		  constant_initialization = NewString("// constant initialization\n");
+		  constant_initialization = NewString("  // constant initialization\n");
 
 
 
@@ -1597,8 +1595,8 @@ public:
 			  wrapdllname = NewStringf("%s.dll",pasraw_name);
 
 
-		  Printf(implementation_begin,"\nconst __DLLNAME= '%s';\n\n", dllname);
-		  Printf(implementation_begin,"\nconst __WRAPDLLNAME= '%s';\n\n", wrapdllname);
+		  Printf(implementation_begin,"\nconst __DLLNAME= '%s';\n", dllname);
+		  Printf(implementation_begin,"\nconst __WRAPDLLNAME= '%s';\n", wrapdllname);
 
 
 		  /* Emit code */
@@ -1687,8 +1685,8 @@ public:
 
 			  Printf(file, "unit %s;\n\n", pasraw_name);
 
-			  Printf(file, "\n{$define %s_FUNCTION_WRAPPER}\n\n",  pasraw_name);
-			  Printf(file, "\n{$define %s_CLASS_WRAPPER}\n\n",  pasraw_name);
+			  //Printf(file, "\n{$define %s_FUNCTION_WRAPPER}\n\n",  pasraw_name);
+			  //Printf(file, "\n{$define %s_CLASS_WRAPPER}\n\n",  pasraw_name);
 
 
 			  //implementation
@@ -1727,14 +1725,14 @@ public:
 			  Printv(file, interface_functions, NIL);
 
 
-			  Printf(file, "\n{$ifdef %s_CLASS_WRAPPER}\n",  pasraw_name);
-			  Printv(file, paswrap_intf.f, NIL);
-			  Printf(file, "\n{$endif} //%s_CLASS_WRAPPER\n",  pasraw_name);
+			  //Printf(file, "\n{$ifdef %s_CLASS_WRAPPER}\n",  pasraw_name);
+			  //Printv(file, paswrap_intf.f, NIL);
+			  //Printf(file, "\n{$endif} //%s_CLASS_WRAPPER\n",  pasraw_name);
 
 
-			  Printf(file, "\n{$ifdef %s_FUNCTION_WRAPPER}\n",  pasraw_name);
-			  Printv(file, interface_functions_wrapper, NIL);
-			  Printf(file, "\n{$endif} //%s_FUNCTION_WRAPPER\n",  pasraw_name);
+			  //Printf(file, "\n{$ifdef %s_FUNCTION_WRAPPER}\n",  pasraw_name);
+			  //Printv(file, interface_functions_wrapper, NIL);
+			  //Printf(file, "\n{$endif} //%s_FUNCTION_WRAPPER\n",  pasraw_name);
 
 
 
@@ -1764,14 +1762,14 @@ public:
 
 			  Printv(file, implementation_end, NIL);
 			  Printv(file, implementation_functions, NIL);
-			  Printf(file, "\n{$ifdef %s_FUNCTION_WRAPPER}\n",  pasraw_name);
-			  Printv(file, implementation_functions_wrapper, NIL);
-			  Printf(file, "\n{$endif} //%s_FUNCTION_WRAPPER\n",  pasraw_name);
+			  //Printf(file, "\n{$ifdef %s_FUNCTION_WRAPPER}\n",  pasraw_name);
+			  //Printv(file, implementation_functions_wrapper, NIL);
+			  //Printf(file, "\n{$endif} //%s_FUNCTION_WRAPPER\n",  pasraw_name);
 
 
-			  Printf(file, "\n{$ifdef %s_CLASS_WRAPPER}\n",  pasraw_name);
-			  Printv(file, paswrap_impl.f, NIL);
-			  Printf(file, "\n{$endif} //%s_CLASS_WRAPPER\n",  pasraw_name);
+			  //Printf(file, "\n{$ifdef %s_CLASS_WRAPPER}\n",  pasraw_name);
+			  //Printv(file, paswrap_impl.f, NIL);
+			  //Printf(file, "\n{$endif} //%s_CLASS_WRAPPER\n",  pasraw_name);
 
 
 			  Printf(file, "\ninitialization\n", pasraw_name);
@@ -2013,37 +2011,44 @@ public:
 		  String *capname = capitalizeFirst(symname);
 		  String *wname = Swig_name_wrapper(symname);
 
-
+          //printf("burdan 1 \n");
+          //printf("capname: %s\n",Char(capname));
+          //printf("wname: %s\n",Char(wname));
 
 		  //printf("function: %s\n", Char(symname));
 		  //printf(" purpose: %s\n", Char(funcType));
 
 		  if (Strcmp(type, "constant") == 0) {
+			  //printf("burdan 2\n");
 			  Setattr(n, "delphi:funcname", capname);
 			  emitCWrapper(n, wname);
 			  emitPASRawPrototype(n, wname, capname);
 		  }
 
 		  if (Strcmp(type, "enumitem") == 0) {
+			  //printf("burdan 3\n");
 			  Setattr(n, "delphi:funcname", capname);
 			  emitCWrapper(n, wname);
 			  emitPASRawPrototype(n, wname, capname);
 		  }
 
 		  if (Strcmp(type, "cdecl") == 0) {
+			  //printf("burdan 3\n");
 			  if (funcType == NIL) {
 				  // no wrapper needed for plain functions ?
 
 				  if (wrapping_member_flag && static_flag ) {
+					  //printf("burdan 3.1\n");
 					  emitCWrapper(n, wname);
 					  emitPASRawPrototype(n, wname, symname);
 				  }
 				  else if (Getattr(n,"template") != 0) {
+					  //printf("burdan 3.2\n");
 					  emitCWrapper(n, wname);
 					  emitPASRawPrototype(n, wname, symname);
 				  }
 				  else if (variable_wrapper_flag || global_variable_flag) {
-
+                      //printf("burdan 3.3\n");
 					  Setattr(n, "proxyfuncname", capname);
 					  Setattr(n, "imfuncname", symname);
 					  if (hasPrefix(capname, "Set")) {
@@ -2065,28 +2070,37 @@ public:
 				  }
 				  else {
 
+
 					  if (native_function_flag || nowrap_function)
-
+                        {
+						  //printf("burdan 3.4.1\n");
 						  emitPASRawPrototype(n, rawname, symname);
-
+                        }
 					  else
+						{
+						  //printf("burdan 3.4.2\n");
 						  emitPASRawPrototype(n, wname, capname);
+						}
+
 
 					  if (!nowrap_function)
-
 						  emitCWrapper(n, wname);
+
 				  }
 				  //	emitPASWrapper(n, symname);
 			  } else if (Strcmp(funcType, "method") == 0) {
+				  //printf("burdan 4\n");
 				  Setattr(n, "delphi:funcname", capname);
 				  emitCWrapper(n, wname);
 				  emitPASRawPrototype(n, wname, capname);
 				  //emitPASWrapper(n, capname);
 			  } else if (Strcmp(funcType, "accessor") == 0) {
+				  //printf("burdan 5");
 				  /*
 				  * Generate the proxy class properties for public member variables.
 				  * Not for enums and constants.
 				  */
+
 				  if (/*proxy_flag && */wrapping_member_flag && !enum_constant_flag) {
 					  // Capitalize the first letter in the function name
 					  Setattr(n, "proxyfuncname", capname);
@@ -2114,8 +2128,11 @@ public:
 #endif
 			  }
 		  } else if ((Strcmp(type, "constructor") == 0) || (Strcmp(type, "destructor") == 0)) {
-			  emitCWrapper(n, wname);
-			  emitPASRawPrototype(n, wname, capname);
+			  //printf("burdan 6\n");
+              if (wrapping_member_flag){
+      			  emitCWrapper(n, wname);
+		    	  emitPASRawPrototype(n, wname, capname);
+              }
 			  //   emitPASWrapper(n, capname);
 		  }
 		  // a Java relict
@@ -2721,10 +2738,10 @@ public:
 		  //f.enterBlock(no_block);
 		  if (has_return)
 			  //Printf(f, "\nfunction %s (", cname, pasname);
-			  Printf(f, "\nfunction %s (", pasname);
+			  Printf(f, "\nfunction %s(", pasname);
 		  else
 			  //Printf(f, "\nprocedure %s (", cname, pasname);
-			  Printf(f, "\nprocedure %s (", pasname);
+			  Printf(f, "\nprocedure %s(", pasname);
 		  // G
 		  // Generate signature for raw interface
 		  {
@@ -2810,6 +2827,9 @@ public:
 			  storage=Copy(callconv);
 		  }
 
+		  //printf("cname: %s\n",Char(cname));
+		  //printf("pasname: %s\n",Char(pasname));
+
 		  if (variable_wrapper_flag)
 			  emitPASRawPrototype1(n, cname, pasname, interface_functions_wrapper, 0, pasraw_intf.import, storage);
 		  else
@@ -2862,9 +2882,9 @@ public:
 		  */
 		  // Output the property's accessor methods
 
-		  global_variable_flag = true;
+		  //global_variable_flag = true;
 		  /*int ret = */Language::globalvariableHandler(n);
-		  global_variable_flag = false;
+		  //global_variable_flag = false;
 
 
 		  Printf(paswrap_impl.f, "\n\n");
@@ -4658,7 +4678,7 @@ public:
 
 				  Printf(record, "P$RecordName = ^$RecordName;\n"
 					  "$RecordName = record\n"
-					  "$fields\n"
+					  "$fields"
 					  "end;\n"
 					  "P$RecordNameArray = ^$RecordNameArray_;\n"
 					  "$RecordNameArray_=array[0..(MaxInt div sizeof($RecordName))-1] of 	$RecordName;\n"
@@ -5672,11 +5692,11 @@ public:
 
 		  // SM: produces bugs in functionwrapper
 		  Setattr(n, "delphi:functype", "accessor");
-		  wrapping_member_flag = true;
-		  variable_wrapper_flag = true;
+		  //wrapping_member_flag = true;
+		  //variable_wrapper_flag = true;
 		  Language::membervariableHandler(n);
-		  wrapping_member_flag = false;
-		  variable_wrapper_flag = false;
+		  //wrapping_member_flag = false;
+		  //variable_wrapper_flag = false;
 
 		  {
 			  //String *methods = getMethodDeclarations(n);
@@ -5770,10 +5790,10 @@ public:
 
 		  variable_name =GetattrNew(n, "sym:name");
 
-		  wrapping_member_flag = true;
+		  //wrapping_member_flag = true;
 		  static_flag = true;
 		  Language::staticmembervariableHandler(n);
-		  wrapping_member_flag = false;
+		  //wrapping_member_flag = false;
 		  static_flag = false;
 		  /*
 		  if (static_const_member_flag)
@@ -5788,9 +5808,9 @@ public:
 
 	  virtual int memberconstantHandler(Node *n) {
 		  variable_name =GetattrNew(n, "sym:name");
-		  wrapping_member_flag = true;
+		  //wrapping_member_flag = true;
 		  Language::memberconstantHandler(n);
-		  wrapping_member_flag = false;
+		  //wrapping_member_flag = false;
 		  return SWIG_OK;
 	  }
 
