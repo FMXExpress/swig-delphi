@@ -710,6 +710,10 @@ public:
 		  tm = checkTAndReplace_inHeader(tm, "TF");
 		  tm = checkGrammarWithString(tm);
 
+		  //printf("map:%s\n",Char(map));
+		  //printf("lname:%s\n",Char(lname));
+		  //printf("map:%s\n",Char(tm));
+
 
 		  return tm;
 	  }
@@ -1136,7 +1140,7 @@ public:
 
 		  SWIG_library_directory("delphi");
 
-		  callconv = NewString("cdecl");
+		  callconv = NewString("stdcall");
 
 		  wrapdllname = NewString("");
 		  dllname = NewString("");
@@ -1564,7 +1568,7 @@ public:
 
 		  Printf(wrapper_name, "Delphi_%%f", pasraw_name);
 		  //	Swig_name_register((char *) "wrapper", Char(wrapper_name));
-		  Swig_name_register((char *) "wrapper", (char*)"Delphi_%f");
+		  Swig_name_register((char *) "wrapper", (char*)"%f");
 
 		  if (old_variable_names) {
 			  Swig_name_register((char *) "set", (char *) "set_%v");
@@ -1596,7 +1600,7 @@ public:
 
 
 		  Printf(implementation_begin,"\nconst __DLLNAME= '%s';\n", dllname);
-		  Printf(implementation_begin,"\nconst __WRAPDLLNAME= '%s';\n", wrapdllname);
+		  //Printf(implementation_begin,"\nconst __WRAPDLLNAME= '%s';\n", wrapdllname);
 
 
 		  /* Emit code */
