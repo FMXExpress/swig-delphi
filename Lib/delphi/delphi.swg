@@ -276,8 +276,9 @@
 %typemap(paswraptype) long double,        const long double &        "Extended"
 %typemap(paswraptype) char *                                         "PChar"
 %typemap(paswraptype) void                                           ""
-%typemap(paswraptype) int &				  "PInteger"                                           ""
+%typemap(paswraptype) int &				                             "PInteger"  
 %typemap(paswraptype) SWIGTYPE *                                     "P$1_basetype"
+
 
 
 %typemap(paswrapintype) bool,               const bool *,               const bool &               "LongBool"
@@ -419,15 +420,11 @@
 %typemap(paswraprettype)        SWIGTYPE [] "$1_basetypeArray"
 
 %typemap(ctype)                SWIGTYPE * "$1_type"
-%typemap(pasrawtype)      const SWIGTYPE * "$1_basetype"
-%typemap(pasrawtype)            SWIGTYPE * "$1_basetype"
-%typemap(pasrawintype)    const SWIGTYPE * "$1_basetype"
+%typemap(pasrawtype)      const SWIGTYPE * "P$1_basetype"
+%typemap(pasrawtype)            SWIGTYPE * "P$1_basetype"
+%typemap(pasrawintype)    const SWIGTYPE * "P$1_basetype"
 %typemap(pasrawinmode)    const SWIGTYPE * ""
-%typemap(pasrawintype)          SWIGTYPE * "$1_basetype"
-
-%typemap(pasrawinmode)          SWIGTYPE * "P$1_basetype"
-%typemap(pasrawrettype)   const SWIGTYPE * "P$1_basetype"
-%typemap(pasrawrettype)         SWIGTYPE * "P$1_basetype"
+%typemap(pasrawintype)          SWIGTYPE * "P$1_basetype"
 
 /*%typemap(paswraptype)           SWIGTYPE * "T$1_basetype"*/
 %typemap(paswrapintype)   const SWIGTYPE * "T$1_basetype"
@@ -439,11 +436,11 @@
 
 %typemap(ctype)                SWIGTYPE & "$1_basetype *"
 %typemap(ctype)          const SWIGTYPE & "$1_basetype *"
-%typemap(pasrawtype)      const SWIGTYPE & "$1_basetype"
-%typemap(pasrawtype)            SWIGTYPE & "$1_basetype"
-%typemap(pasrawintype)    const SWIGTYPE & "$1_basetype"
+%typemap(pasrawtype)      const SWIGTYPE & "P$1_basetype"
+%typemap(pasrawtype)            SWIGTYPE & "P$1_basetype"
+%typemap(pasrawintype)    const SWIGTYPE & "P$1_basetype"
 %typemap(pasrawinmode)    const SWIGTYPE & "const"
-%typemap(pasrawintype)          SWIGTYPE & "$1_basetype"
+%typemap(pasrawintype)          SWIGTYPE & "P$1_basetype"
 //%typemap(pasrawinmode)          SWIGTYPE & "var"
 %typemap(pasrawinmode)          SWIGTYPE & ""
 
@@ -550,7 +547,7 @@
 %typemap(out) long               %{ $result = $1; %}
 %typemap(out) unsigned long      %{ $result = $1; %}
 %typemap(out) int64_t            %{ $result = $1; %}
-%typemap(out) uint32_t            %{ $result = $1; %}
+%typemap(out) uint32_t           %{ $result = $1; %}
 %typemap(out) size_t             %{ $result = $1; %}
 %typemap(out) long long          %{ $result = $1; %}
 %typemap(out) unsigned long long %{ $result = $1; %}
@@ -601,7 +598,7 @@ $1 = &temp; %}
 %typemap(out) const unsigned int &       %{ $result = *$1; %}
 %typemap(out) const long &               %{ $result = *$1; %}
 %typemap(out) const int64_t &            %{ $result = *$1; %}
-%typemap(out) const uint32_t &            %{ $result = *$1; %}
+%typemap(out) const uint32_t &           %{ $result = *$1; %}
 %typemap(out) const size_t &             %{ $result = *$1; %}
 %typemap(out) const unsigned long &      %{ $result = *$1; %}
 %typemap(out) const long long &          %{ $result = *$1; %}
@@ -1089,7 +1086,7 @@ end;
 %typemap(pasdestruct_derived_code, methodname="Dispose") SWIGTYPE ""
 
 %typemap(pasgetcptr_intf) SWIGTYPE, SWIGTYPE *, SWIGTYPE &, SWIGTYPE &&, SWIGTYPE [], SWIGTYPE (CLASS::*) %{  
-P$1
+ 
 %}
 
 
