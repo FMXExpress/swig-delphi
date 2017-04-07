@@ -1,5 +1,4 @@
 /* -----------------------------------------------------------------------------
-/* -----------------------------------------------------------------------------
  * See the LICENSE file for information on copyright, usage and redistribution
  * of SWIG, and the README file for authors - http://www.swig.org/release.html.
  *
@@ -7,6 +6,7 @@
  *
  * delphi typemaps
  * ----------------------------------------------------------------------------- */
+
 %include <delphihead.swg> 
 
 /* The ctype, pasrawtype and paswraptype typemaps work together and so there should be one of each. 
@@ -61,7 +61,6 @@
 %typemap(pasrawtype) void *                                         "Pointer"
 %typemap(pasrawtype) void                                           ""
 %typemap(pasrawtype) FILE *                                         "CFILE"
-
 
 %typemap(pasrawintype)	                  bool &,               bool                 "LongBool"
 %typemap(pasrawintype) bool *                                                         "PLongBool"
@@ -189,8 +188,6 @@
 %typemap(pasrawrettype) long double *                                  "PExtended"
 
 
-
-
 %typemap("pasrawtype:import")
   char,               const char &,
   signed char,        const signed char &,
@@ -211,7 +208,6 @@
   long double,        const long double &,
   char *
     "Classes, SysUtils"
-
 	
 %typemap("pasrawintype:import")
   char,               const char &,
@@ -277,7 +273,6 @@
 %typemap(paswraptype) char *                                         "PChar"
 %typemap(paswraptype) void                                           ""
 %typemap(paswraptype) int &				                             "PInteger"  
-%typemap(paswraptype) SWIGTYPE *                                     "P$1_basetype"
 
 
 
@@ -393,10 +388,11 @@
 %typemap(ctype)                 SWIGTYPE "void *"
 
 %typemap(pasrawtype)            SWIGTYPE "$1_type"
+%typemap(pasrawtype)   SWIGTYPE * "P$1_type"
 
 %typemap(pasrawintype)          SWIGTYPE "$1_type"
 %typemap(pasrawrettype)         SWIGTYPE "$1_basetype"
-/*%typemap(paswraptype)           SWIGTYPE "T$1_basetype"*/
+%typemap(paswraptype)           SWIGTYPE "T$1_basetype"
 %typemap(paswrapintype)         SWIGTYPE "T$1_basetype"
 %typemap(paswrapouttype)        SWIGTYPE "T$1_basetype"
 %typemap(paswraprettype)        SWIGTYPE "T$1_basetype"
@@ -412,12 +408,16 @@
 %typemap(pasrawrettype)   const SWIGTYPE [] "$1_basetypeArray"
 %typemap(pasrawrettype)         SWIGTYPE [] "$1_basetypeArray"
 %typemap(paswraptype)           SWIGTYPE [] "$1_basetypeArray"
+%typemap(paswraptype)     const SWIGTYPE [] "$1_basetypeArray"
 %typemap(paswrapintype)   const SWIGTYPE [] "$1_basetypeArray"
 %typemap(paswrapinmode)   const SWIGTYPE [] ""
 %typemap(paswrapintype)         SWIGTYPE [] "$1_basetypeArray"
 %typemap(paswrapinmode)         SWIGTYPE [] ""
 %typemap(paswrapouttype)        SWIGTYPE [] "$1_basetypeArray"
 %typemap(paswraprettype)        SWIGTYPE [] "$1_basetypeArray"
+%typemap(paswraptype)    const  SWIGTYPE [][ANY] "$1_basetypeArray"
+%typemap(pasrawrettype)  const  SWIGTYPE [][ANY] "$1_typeArray"
+
 
 %typemap(ctype)                SWIGTYPE * "$1_type"
 %typemap(pasrawtype)      const SWIGTYPE * "P$1_basetype"
@@ -426,7 +426,7 @@
 %typemap(pasrawinmode)    const SWIGTYPE * ""
 %typemap(pasrawintype)          SWIGTYPE * "P$1_basetype"
 
-/*%typemap(paswraptype)           SWIGTYPE * "T$1_basetype"*/
+%typemap(paswraptype)           SWIGTYPE * "T$1_basetype"
 %typemap(paswrapintype)   const SWIGTYPE * "T$1_basetype"
 %typemap(paswrapinmode)   const SWIGTYPE * ""
 %typemap(paswrapintype)         SWIGTYPE * "T$1_basetype"
@@ -436,11 +436,11 @@
 
 %typemap(ctype)                SWIGTYPE & "$1_basetype *"
 %typemap(ctype)          const SWIGTYPE & "$1_basetype *"
-%typemap(pasrawtype)      const SWIGTYPE & "P$1_basetype"
-%typemap(pasrawtype)            SWIGTYPE & "P$1_basetype"
-%typemap(pasrawintype)    const SWIGTYPE & "P$1_basetype"
+%typemap(pasrawtype)      const SWIGTYPE & "$1_basetype"
+%typemap(pasrawtype)            SWIGTYPE & "$1_basetype"
+%typemap(pasrawintype)    const SWIGTYPE & "$1_basetype"
 %typemap(pasrawinmode)    const SWIGTYPE & "const"
-%typemap(pasrawintype)          SWIGTYPE & "P$1_basetype"
+%typemap(pasrawintype)          SWIGTYPE & "$1_basetype"
 //%typemap(pasrawinmode)          SWIGTYPE & "var"
 %typemap(pasrawinmode)          SWIGTYPE & ""
 
@@ -448,7 +448,7 @@
 %typemap(pasrawrettype)   const SWIGTYPE & "$1_basetype"
 %typemap(pasrawrettype)         SWIGTYPE & "$1_basetype"
 
-/*%typemap(paswraptype)           SWIGTYPE & "T$1_basetype"*/
+%typemap(paswraptype)           SWIGTYPE & "T$1_basetype"
 %typemap(paswrapintype)   const SWIGTYPE & "T$1_basetype"
 %typemap(paswrapinmode)   const SWIGTYPE & "const"
 
@@ -471,7 +471,7 @@
 %typemap(pasrawrettype)   const SWIGTYPE && "$1_basetype"
 %typemap(pasrawrettype)         SWIGTYPE && "$1_basetype"
 
-/*%typemap(paswraptype)           SWIGTYPE && "T$1_basetype"*/
+%typemap(paswraptype)           SWIGTYPE && "T$1_basetype"
 %typemap(paswrapintype)   const SWIGTYPE && "T$1_basetype"
 %typemap(paswrapinmode)   const SWIGTYPE && "const"
 
@@ -534,7 +534,6 @@
              double, 
              enum SWIGTYPE
 %{ $input %}
-
 
 %typemap(out) bool               %{ $result = $1; %}
 %typemap(out) char               %{ $result = $1; %}
@@ -626,10 +625,9 @@ $1 = &temp; %}
 }
 #endif
 
+
 /* Generic pointers and references */
 %typemap(in) SWIGTYPE *, SWIGTYPE (CLASS::*) %{ $1 = *($&1_ltype)&$input; %}
-
-
 
 %typemap(in) SWIGTYPE & %{ $1 = *($&1_ltype)&$input;
   if(!$1) {
@@ -863,13 +861,13 @@ $1 = &temp; %}
     "$input"    
     
 %typemap(pasin_locals) SWIGTYPE *, SWIGTYPE [], SWIGTYPE (CLASS::*) 
-	" yyyyyyyyy"
+	""
 
 %typemap(pasin_pre) SWIGTYPE *&, SWIGTYPE [], SWIGTYPE (CLASS::*) 
-	" gggggg"
+	""
 
 %typemap(pasin_post) SWIGTYPE *, SWIGTYPE [], SWIGTYPE (CLASS::*) 
-	" ccccccc"
+	""
 
 %typemap(pasin) SWIGTYPE *, SWIGTYPE [] 
 	"$input.CObjPtr"
