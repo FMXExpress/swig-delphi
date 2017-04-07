@@ -19,7 +19,7 @@
 %typemap(ctype) bool,               const bool &               "bool"
 %typemap(ctype) char,               const char &               "char"
 %typemap(ctype) signed char,        const signed char &        "signed char"
-%typemap(ctype) unsigned char,      const unsigned char &      "unsigned short"
+%typemap(ctype) unsigned char,      const unsigned char &      "unsigned char"
 %typemap(ctype) short,              const short &              "short"
 %typemap(ctype) unsigned short,     const unsigned short &     "unsigned short"
 %typemap(ctype) int,                const int &                "int"
@@ -56,6 +56,8 @@
 %typemap(pasrawtype) double,             const double &             "Double"
 %typemap(pasrawtype) long double,        const long double &        "Extended"
 %typemap(pasrawtype) char *                                         "PChar"
+%typemap(pasrawtype) unsigned char *                                "PByte"
+%typemap(pasrawtype) unsigned short*                                "PWord"
 %typemap(pasrawtype) void *                                         "Pointer"
 %typemap(pasrawtype) void                                           ""
 %typemap(pasrawtype) FILE *                                         "CFILE"
@@ -69,7 +71,7 @@
 %typemap(pasrawintype)						signed char &,        signed char        "ShortInt"
 %typemap(pasrawintype) signed char *											         "PShortInt"
 
-%typemap(pasrawintype)				       unsigned char &,      unsigned char      "Byte"
+%typemap(pasrawintype) unsigned char &,      unsigned char      "Byte"
 %typemap(pasrawintype) unsigned char *										         "PByte"
 
 
@@ -183,7 +185,7 @@
 %typemap(pasrawrettype) unsigned long long*                            "PInt64"
 %typemap(pasrawrettype) float*                                         "PSingle"
 %typemap(pasrawrettype) double*                                        "PDouble"
-%typemap(pasrawrettype) long double *                                  "Extended"
+%typemap(pasrawrettype) long double *                                  "PExtended"
 
 
 %typemap("pasrawtype:import")
@@ -206,7 +208,7 @@
   long double,        const long double &,
   char *
     "Classes, SysUtils"
-
+	
 %typemap("pasrawintype:import")
   char,               const char &,
   signed char,        const signed char &,
@@ -249,6 +251,7 @@
   char *
     "Classes, SysUtils"
 
+	
 %typemap(paswraptype) bool,               const bool &               "LongBool"
 %typemap(paswraptype) char,               const char &               "Char"
 %typemap(paswraptype) signed char,        const signed char &        "ShortInt"
@@ -269,7 +272,8 @@
 %typemap(paswraptype) long double,        const long double &        "Extended"
 %typemap(paswraptype) char *                                         "PChar"
 %typemap(paswraptype) void                                           ""
-%typemap(paswraptype) int &				  "PInteger"                                           ""
+%typemap(paswraptype) int &				                             "PInteger"  
+
 
 
 %typemap(paswrapintype) bool,               const bool *,               const bool &               "LongBool"
@@ -384,6 +388,7 @@
 %typemap(ctype)                 SWIGTYPE "void *"
 
 %typemap(pasrawtype)            SWIGTYPE "$1_type"
+%typemap(pasrawtype)   SWIGTYPE * "P$1_type"
 
 %typemap(pasrawintype)          SWIGTYPE "$1_type"
 %typemap(pasrawrettype)         SWIGTYPE "$1_basetype"
@@ -403,23 +408,23 @@
 %typemap(pasrawrettype)   const SWIGTYPE [] "$1_basetypeArray"
 %typemap(pasrawrettype)         SWIGTYPE [] "$1_basetypeArray"
 %typemap(paswraptype)           SWIGTYPE [] "$1_basetypeArray"
+%typemap(paswraptype)     const SWIGTYPE [] "$1_basetypeArray"
 %typemap(paswrapintype)   const SWIGTYPE [] "$1_basetypeArray"
 %typemap(paswrapinmode)   const SWIGTYPE [] ""
 %typemap(paswrapintype)         SWIGTYPE [] "$1_basetypeArray"
 %typemap(paswrapinmode)         SWIGTYPE [] ""
 %typemap(paswrapouttype)        SWIGTYPE [] "$1_basetypeArray"
 %typemap(paswraprettype)        SWIGTYPE [] "$1_basetypeArray"
+%typemap(paswraptype)    const  SWIGTYPE [][ANY] "$1_basetypeArray"
+%typemap(pasrawrettype)  const  SWIGTYPE [][ANY] "$1_typeArray"
+
 
 %typemap(ctype)                SWIGTYPE * "$1_type"
-%typemap(pasrawtype)      const SWIGTYPE * "$1_basetype"
-%typemap(pasrawtype)            SWIGTYPE * "$1_basetype"
-%typemap(pasrawintype)    const SWIGTYPE * "$1_basetype"
+%typemap(pasrawtype)      const SWIGTYPE * "P$1_basetype"
+%typemap(pasrawtype)            SWIGTYPE * "P$1_basetype"
+%typemap(pasrawintype)    const SWIGTYPE * "P$1_basetype"
 %typemap(pasrawinmode)    const SWIGTYPE * ""
-%typemap(pasrawintype)          SWIGTYPE * "$1_basetype"
-
-%typemap(pasrawinmode)          SWIGTYPE * ""
-%typemap(pasrawrettype)   const SWIGTYPE * "$1_basetype"
-%typemap(pasrawrettype)         SWIGTYPE * "$1_basetype"
+%typemap(pasrawintype)          SWIGTYPE * "P$1_basetype"
 
 %typemap(paswraptype)           SWIGTYPE * "T$1_basetype"
 %typemap(paswrapintype)   const SWIGTYPE * "T$1_basetype"
@@ -504,7 +509,6 @@
 %typemap(paswrapouttype) void *  "pointer"
 
 
-
 /* The following are the in, out, freearg, argout typemaps.
    These are the PInvoke code generating typemaps for converting from C# to C and visa versa. */
 
@@ -542,7 +546,7 @@
 %typemap(out) long               %{ $result = $1; %}
 %typemap(out) unsigned long      %{ $result = $1; %}
 %typemap(out) int64_t            %{ $result = $1; %}
-%typemap(out) uint32_t            %{ $result = $1; %}
+%typemap(out) uint32_t           %{ $result = $1; %}
 %typemap(out) size_t             %{ $result = $1; %}
 %typemap(out) long long          %{ $result = $1; %}
 %typemap(out) unsigned long long %{ $result = $1; %}
@@ -593,7 +597,7 @@ $1 = &temp; %}
 %typemap(out) const unsigned int &       %{ $result = *$1; %}
 %typemap(out) const long &               %{ $result = *$1; %}
 %typemap(out) const int64_t &            %{ $result = *$1; %}
-%typemap(out) const uint32_t &            %{ $result = *$1; %}
+%typemap(out) const uint32_t &           %{ $result = *$1; %}
 %typemap(out) const size_t &             %{ $result = *$1; %}
 %typemap(out) const unsigned long &      %{ $result = *$1; %}
 %typemap(out) const long long &          %{ $result = *$1; %}
@@ -621,10 +625,9 @@ $1 = &temp; %}
 }
 #endif
 
+
 /* Generic pointers and references */
 %typemap(in) SWIGTYPE *, SWIGTYPE (CLASS::*) %{ $1 = *($&1_ltype)&$input; %}
-
-
 
 %typemap(in) SWIGTYPE & %{ $1 = *($&1_ltype)&$input;
   if(!$1) {
@@ -1017,10 +1020,10 @@ var CPtr : pointer;
 %}
 
 /* Typemaps used for the generation of proxy and type wrapper class code */
-%typemap(pasbase)                      SWIGTYPE, SWIGTYPE *, SWIGTYPE &, SWIGTYPE &&, SWIGTYPE [], SWIGTYPE (CLASS::*) ""
+%typemap(pasbase)                      SWIGTYPE, SWIGTYPE *, SWIGTYPE &, SWIGTYPE &&, SWIGTYPE [], SWIGTYPE (CLASS::*) " vvvvv"
 %typemap(pasclassmodifiers)            SWIGTYPE, SWIGTYPE *, SWIGTYPE &, SWIGTYPE &&, SWIGTYPE [], SWIGTYPE (CLASS::*) "public"
-%typemap(pascode)                      SWIGTYPE, SWIGTYPE *, SWIGTYPE &, SWIGTYPE &&, SWIGTYPE [], SWIGTYPE (CLASS::*) ""
-%typemap(pasimports)                   SWIGTYPE, SWIGTYPE *, SWIGTYPE &, SWIGTYPE &&, SWIGTYPE [], SWIGTYPE (CLASS::*) ""
+%typemap(pascode)                      SWIGTYPE, SWIGTYPE *, SWIGTYPE &, SWIGTYPE &&, SWIGTYPE [], SWIGTYPE (CLASS::*) " zzzzzzz"
+%typemap(pasimports)                   SWIGTYPE, SWIGTYPE *, SWIGTYPE &, SWIGTYPE &&, SWIGTYPE [], SWIGTYPE (CLASS::*) "  ffffffff"
 %typemap(pasinterfaces)                SWIGTYPE ""
 %typemap(pasinterfaces_derived)                  SWIGTYPE *, SWIGTYPE &, SWIGTYPE &&, SWIGTYPE [], SWIGTYPE (CLASS::*) ""
 %typemap(pasptrconstructormodifiers) SWIGTYPE, SWIGTYPE *, SWIGTYPE &, SWIGTYPE &&, SWIGTYPE [], SWIGTYPE (CLASS::*) "internal"
@@ -1030,34 +1033,11 @@ var CPtr : pointer;
 %}
 
 %typemap(pasclassdef_base) SWIGTYPE "
-  T$pasclassname = class (TObject, IUnknown)
-
-  private
-    FCObjPtr : $pasclassname;
-    FOwnCObjPtr : boolean;
-
-  protected
-	procedure SetCObjPtr(Value : $pasclassname);
-  // IUnknown
-    function _AddRef : integer; stdcall;
-    function _Release: integer; stdcall;
-    function QueryInterface(const GUID:TGUID; out Intf): HRESULT; stdcall;
- public
+  T$pasclassname = class (TInterfacedObject)
+  public
 "
 %typemap(pasclassdef_base_struct) SWIGTYPE "
-  T$pasclassname = class
-
-  private
-    FCObjPtr : $pasclassname;
-    FOwnCObjPtr : boolean;
-
-  protected
-	procedure SetCObjPtr(Value : $pasclassname);
-  // IUnknown
-    function _AddRef : integer; stdcall;
-    function _Release: integer; stdcall;
-    function QueryInterface(const GUID:TGUID; out Intf): HRESULT; stdcall;
- public
+  T$pasclassname = record
 "
 
 %typemap(pasclass_iunknown) SWIGTYPE "
@@ -1082,26 +1062,8 @@ end;
  "
 
 
-%typemap(pasdefault_constructor_def) SWIGTYPE "
-    constructor Create; overload; virtual;
-    constructor Create(CObj:$pasclassname; OwnObj:boolean); overload; 
-"
-%typemap(pasdefault_constructor_code) SWIGTYPE "
-constructor T$pasclassname.Create; 
-begin
-  inherited Create;
-  FCObjPtr := nil;
-  FOwnCObjPtr := true
-end;
-
-constructor T$pasclassname.Create(CObj:$pasclassname; OwnObj:boolean); 
-begin
-  inherited Create;
-  FCObjPtr := CObj;
-  FOwnCObjPtr := OwnObj
-end;
-
-"
+%typemap(pasdefault_constructor_def) SWIGTYPE ""
+%typemap(pasdefault_constructor_code) SWIGTYPE ""
 
 %typemap(pasclassdef_derived, methodname="Dispose") SWIGTYPE "
   T$pasclassname = class (T$baseclass) 
@@ -1117,65 +1079,15 @@ end;
 "
 
 
-%typemap(pasdestruct_code, methodname="Dispose") SWIGTYPE "
-destructor T$pasclassname.Destroy; 
-begin   
-  if (FCObjPtr <> nil) and  FOwnCObjPtr then begin 
-    $imcall;
-    FOwnCObjPtr := false;
-  end;
-  FCObjPtr := nil; 
-  inherited Destroy;
-end;
+%typemap(pasdestruct_code, methodname="Dispose") SWIGTYPE ""
 
-procedure T$pasclassname.SetCObjPtr(Value : $pasclassname);
-begin
- 
-  if (Value <> FCObjPtr) then begin
-	if (FCObjPtr <> nil) and  FOwnCObjPtr then begin 
-		$imcall;
-	end;
-	FCObjPtr := Value;
-  
-  
-  end;
-
-end;
-
-"
-
-%typemap(pasdestruct_derived_code, methodname="Dispose") SWIGTYPE "
-destructor T$pasclassname.Destroy;
-begin   
-  if (FCObjPtr  <> nil) and  FOwnCObjPtr then begin 
-    $imcall;
-    FOwnCObjPtr := false;
-  end;  
-  FCObjPtr := nil; 
-  inherited Destroy;
-end;
-"
+%typemap(pasdestruct_derived_code, methodname="Dispose") SWIGTYPE ""
 
 %typemap(pasgetcptr_intf) SWIGTYPE, SWIGTYPE *, SWIGTYPE &, SWIGTYPE &&, SWIGTYPE [], SWIGTYPE (CLASS::*) %{  
-  public  
-    property CObjPtr : $pasclassname read FCObjPtr write SetCObjPtr;
-    property OwnCObjPtr : boolean read FOwnCObjPtr  write FOwnCObjPtr ;
+ 
 %}
 
 
-/* M3 specific directives */
-
-
-#define %pasmultiretval        %feature("modula3:multiretval")
-#define %constnumeric(num)    %feature("constnumeric","num")
-
-%pragma(modula3) moduleimports=%{
-IMPORT BlaBla;
-%}
-
-%pragma(modula3) imclassimports=%{
-FROM BlaBla IMPORT Bla;
-%}
 
 /* Some ANSI C typemaps */
 
@@ -1214,18 +1126,17 @@ FROM BlaBla IMPORT Bla;
 
 #endif
 
-%define DeclarePlaceHolder(__WHERE__, x)
+%define DeclarePtrType(x)
 
-%insert(##__WHERE__) %{
-	type  
-		x=type Pointer;
-		##x##Array = array[0..(MaxInt div sizeof(x))-1] of x;
-		P##x##Array = ^##x##Array;
+%insert(##interface_begin) %{
+	typedef x * P##x##;
+	
 %}
 
-%typemap(pasrawintype)    x  %{x%}
-%typemap(pasrawouttype)    x  %{x%}
-%typemap(pasrawrettype)    x  %{x%}
+
+%typemap(pasrawintype)     x  %{P##x%}
+%typemap(pasrawrettype)    x  %{P##x%}
+%typemap(pasrawouttype)    x  %{P##x%}
 
 %enddef
 
@@ -1241,21 +1152,6 @@ FROM BlaBla IMPORT Bla;
 %}
 
 %enddef
-
-
-%insert(interface_begin) %{
-//type PDouble = ^double;
-%}
-
-DeclareArrayOf(interface_begin, double)
-DeclareArrayOf(interface_begin, cardinal)
-
-
-%insert(interface_end) %{
-type
-	Psize_t = ^Cardinal;
-%}
-
 
 %define TEMPLATE_WRAP0(name, type,T...) 
 
@@ -1273,8 +1169,9 @@ type
 %typemap(  pasrawouttype)     name < T > * 	%{name##type%}
 %typemap(  pasrawrettype)     name < T > * 	%{name##type%}
 
+
+
 %template(name ## type) name<T >;
 
 %enddef
 
-DeclarePlaceHolder(interface_begin, CFILE);
