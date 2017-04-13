@@ -425,8 +425,8 @@ public:
 		  f_init = NULL;
 		  f_directors = NULL;
 		  f_directors_h = NULL;
-		  opaque_record = true;
-		  proxy_flag = true;
+		  opaque_record = false;
+		  proxy_flag = false;
 		  have_default_constructor_flag = false;
 		  nowrap_function_flag = false;
 		  native_function_flag = false;
@@ -501,6 +501,10 @@ public:
 		  Setattr(reserved_keyword,"var", "1");
 		  Setattr(reserved_keyword,"const", "1");
 		  Setattr(reserved_keyword,"class", "1");
+		  Setattr(reserved_keyword,"private", "1");
+		  Setattr(reserved_keyword,"protected", "1");
+		  Setattr(reserved_keyword,"public", "1");
+		  Setattr(reserved_keyword,"publish", "1");
 		  Setattr(reserved_keyword,"set", "1");
 		  Setattr(reserved_keyword,"string", "1");
 		  Setattr(reserved_keyword,"array", "1");
@@ -509,13 +513,11 @@ public:
 		  Setattr(reserved_keyword,"integer", "1");
 		  Setattr(reserved_keyword,"char", "1");
 		  Setattr(reserved_keyword,"byte", "1");
-		  Setattr(reserved_keyword,"const", "1");
+		  Setattr(reserved_keyword,"function", "1");
+		  Setattr(reserved_keyword,"procedure", "1");
 		  Setattr(reserved_keyword,"object", "1");
 		  Setattr(reserved_keyword,"begin", "1");
 		  Setattr(reserved_keyword,"end", "1");
-
-
-
 	  }
 
 	  virtual ~DELPHI()
@@ -1471,10 +1473,10 @@ public:
 		  implementation_functions_wrapper= NewString("\n// Functions Wrapper \n\n");
 		  implementation_end= NewString("");
 
-		  initialization= NewString("\n\n//initialization\n\n");
-		  finalization= NewString("\n\n//finalization\n\n");
+		  initialization= NewString(""); //\n\n//initialization\n\n
+		  finalization= NewString(""); //\n\n//finalization\n\n
 
-		  constant_initialization = NewString("\n\n// constant initialization\n\n");
+		  constant_initialization = NewString("  // constant initialization\n");
 
 
 
@@ -1566,7 +1568,7 @@ public:
 
 		  Printf(wrapper_name, "Delphi_%%f", pasraw_name);
 		  //	Swig_name_register((char *) "wrapper", Char(wrapper_name));
-		  Swig_name_register((char *) "wrapper", (char*)"Delphi_%f");
+		  Swig_name_register((char *) "wrapper", (char*)"%f");
 
 		  if (old_variable_names) {
 			  Swig_name_register((char *) "set", (char *) "set_%v");
@@ -1598,7 +1600,7 @@ public:
 
 
 		  Printf(implementation_begin,"\nconst __DLLNAME= '%s';\n\n", dllname);
-		  Printf(implementation_begin,"\nconst __WRAPDLLNAME= '%s';\n\n", wrapdllname);
+		  //Printf(implementation_begin,"\nconst __WRAPDLLNAME= '%s';\n", wrapdllname);
 
 
 		  /* Emit code */
@@ -1687,8 +1689,8 @@ public:
 
 			  Printf(file, "unit %s;\n\n", pasraw_name);
 
-			  Printf(file, "\n{$define %s_FUNCTION_WRAPPER}\n\n",  pasraw_name);
-			  Printf(file, "\n{$define %s_CLASS_WRAPPER}\n\n",  pasraw_name);
+			  //Printf(file, "\n{$define %s_FUNCTION_WRAPPER}\n\n",  pasraw_name);
+			  //Printf(file, "\n{$define %s_CLASS_WRAPPER}\n\n",  pasraw_name);
 
 
 			  //implementation
@@ -1727,14 +1729,14 @@ public:
 			  Printv(file, interface_functions, NIL);
 
 
-			  Printf(file, "\n{$ifdef %s_CLASS_WRAPPER}\n",  pasraw_name);
-			  Printv(file, paswrap_intf.f, NIL);	
-			  Printf(file, "\n{$endif} //%s_CLASS_WRAPPER\n",  pasraw_name);
+			  //Printf(file, "\n{$ifdef %s_CLASS_WRAPPER}\n",  pasraw_name);
+			  //Printv(file, paswrap_intf.f, NIL);
+			  //Printf(file, "\n{$endif} //%s_CLASS_WRAPPER\n",  pasraw_name);
 
 
-			  Printf(file, "\n{$ifdef %s_FUNCTION_WRAPPER}\n",  pasraw_name);
-			  Printv(file, interface_functions_wrapper, NIL);
-			  Printf(file, "\n{$endif} //%s_FUNCTION_WRAPPER\n",  pasraw_name);
+			  //Printf(file, "\n{$ifdef %s_FUNCTION_WRAPPER}\n",  pasraw_name);
+			  //Printv(file, interface_functions_wrapper, NIL);
+			  //Printf(file, "\n{$endif} //%s_FUNCTION_WRAPPER\n",  pasraw_name);
 
 
 
@@ -1764,14 +1766,14 @@ public:
 
 			  Printv(file, implementation_end, NIL);
 			  Printv(file, implementation_functions, NIL);
-			  Printf(file, "\n{$ifdef %s_FUNCTION_WRAPPER}\n",  pasraw_name);
-			  Printv(file, implementation_functions_wrapper, NIL);
-			  Printf(file, "\n{$endif} //%s_FUNCTION_WRAPPER\n",  pasraw_name);
+			  //Printf(file, "\n{$ifdef %s_FUNCTION_WRAPPER}\n",  pasraw_name);
+			  //Printv(file, implementation_functions_wrapper, NIL);
+			  //Printf(file, "\n{$endif} //%s_FUNCTION_WRAPPER\n",  pasraw_name);
 
 
-			  Printf(file, "\n{$ifdef %s_CLASS_WRAPPER}\n",  pasraw_name);
-			  Printv(file, paswrap_impl.f, NIL);	
-			  Printf(file, "\n{$endif} //%s_CLASS_WRAPPER\n",  pasraw_name);
+			  //Printf(file, "\n{$ifdef %s_CLASS_WRAPPER}\n",  pasraw_name);
+			  //Printv(file, paswrap_impl.f, NIL);
+			  //Printf(file, "\n{$endif} //%s_CLASS_WRAPPER\n",  pasraw_name);
 
 
 			  Printf(file, "\ninitialization\n\n", pasraw_name);
@@ -2114,8 +2116,10 @@ public:
 #endif
 			  }
 		  } else if ((Strcmp(type, "constructor") == 0) || (Strcmp(type, "destructor") == 0)) {
-			  emitCWrapper(n, wname);
-			  emitPASRawPrototype(n, wname, capname);
+              if (wrapping_member_flag){
+      			  emitCWrapper(n, wname);
+		    	  emitPASRawPrototype(n, wname, capname);
+              }
 			  //   emitPASWrapper(n, capname);
 		  }
 		  // a Java relict
@@ -2862,9 +2866,9 @@ public:
 		  */
 		  // Output the property's accessor methods
 
-		  global_variable_flag = true;
+		  //global_variable_flag = true;
 		  /*int ret = */Language::globalvariableHandler(n);
-		  global_variable_flag = false;
+		  //global_variable_flag = false;
 
 
 		  Printf(paswrap_impl.f, "\n\n");
@@ -4661,7 +4665,7 @@ public:
 					  "$fields\n"
 					  "end;\n"
 					  "P$RecordNameArray = ^$RecordNameArray_;\n"
-					  "$RecordNameArray_=array[0..(MaxInt div sizeof($RecordName))-1] of 	$RecordName;\n"						
+					  "$RecordNameArray_=array[0..(MaxInt div sizeof($RecordName))-1] of $RecordName;\n"
 					  );
 				  Replace(record,"$RecordName", proxy_class_name, DOH_REPLACE_ANY);
 				  Replace(record,"$fields", entries, DOH_REPLACE_ANY);
@@ -5199,7 +5203,7 @@ public:
 		  if (wrapping_constructor_flag) {
 
 
-			  Printv(pre_code, 
+			  /*Printv(pre_code,
 				  "\n",
 				  "  inherited Create;\n",
 				  "  FOwnCObjPtr := true;\n",
@@ -5208,16 +5212,19 @@ public:
 			  Printv(imcall, 
 				  "  FCObjPtr := ", pasraw_name, ".", intermediary_function_name, "(",
 				  NIL);
+			*/
 
 		  }
 		  else {
-			  Printv(pre_code, !static_flag ? "\n  assert(FCObjPtr <> nil);\n" : "\n", NIL);
+			  //Printv(pre_code, !static_flag ? "\n  assert(FCObjPtr <> nil);\n" : "\n", NIL);
 
 			  Printv(imcall,"",
 				  pasraw_name, ".", intermediary_function_name, "(", NIL);
 		  }
 		  if (!static_flag && !wrapping_constructor_flag)
-			  Printv(imcall, "Self.FCObjPtr", NIL);
+			{
+			  //Printv(imcall, "Self.FCObjPtr", NIL);
+			}
 
 		  emit_mark_varargs(l);
 
@@ -5671,11 +5678,11 @@ public:
 
 		  // SM: produces bugs in functionwrapper
 		  Setattr(n, "delphi:functype", "accessor");
-		  wrapping_member_flag = true;
-		  variable_wrapper_flag = true;
+		  //wrapping_member_flag = true;
+		  //variable_wrapper_flag = true;
 		  Language::membervariableHandler(n);
-		  wrapping_member_flag = false;
-		  variable_wrapper_flag = false;
+		  //wrapping_member_flag = false;
+		  //variable_wrapper_flag = false;
 
 		  {
 			  //String *methods = getMethodDeclarations(n);
@@ -5769,10 +5776,10 @@ public:
 
 		  variable_name =GetattrNew(n, "sym:name");
 
-		  wrapping_member_flag = true;
+		  //wrapping_member_flag = true;
 		  static_flag = true;
 		  Language::staticmembervariableHandler(n);
-		  wrapping_member_flag = false;
+		  //wrapping_member_flag = false;
 		  static_flag = false;
 		  /*
 		  if (static_const_member_flag)
@@ -5787,9 +5794,9 @@ public:
 
 	  virtual int memberconstantHandler(Node *n) {
 		  variable_name =GetattrNew(n, "sym:name");
-		  wrapping_member_flag = true;
+		  //wrapping_member_flag = true;
 		  Language::memberconstantHandler(n);
-		  wrapping_member_flag = false;
+		  //wrapping_member_flag = false;
 		  return SWIG_OK;
 	  }
 
